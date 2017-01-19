@@ -16,16 +16,24 @@ app.get('/:time', (req, res) => {
   // If it is a number we have to use parseInt so it recognizes the timestamp.
   if (isNaN(req.params.time)) {
     // get the timestamp but divide by 1000 because its in milliseconds.
+    const timestamp = Date.parse(req.params.time);
     res.json({
-      unix: Date.parse(req.params.time) / 1000,
-      natural: req.params.time
+      unix: timestamp / 1000,
+      natural: timestamp ? req.params.time : null
     });
   } else {
     const parsedTime = parseInt(req.params.time, 10);
-    res.json({
-      unix: parsedTime,
-      natural: moment(parsedTime * 1000).format('MMMM D, YYYY') // moment needs milliseconds
-    });
+    if (parsedTime < 0) {
+      res.json({
+        unix: null,
+        natural: null
+      });
+    } else {
+      res.json({
+        unix: parsedTime,
+        natural: moment(parsedTime * 1000).format('MMMM D, YYYY') // moment needs milliseconds
+      });
+    }
   }
 });
 
