@@ -1,0 +1,16 @@
+{
+  "name": "fcc-mat-timestamp",
+  "version": "1.0.0",
+  "description": "The FCC Timestamp Task.",
+  "main": "index.js",
+  "repository": {
+    "url": "https://github.com/Capevace/fcc-timestamp-microservice",
+    "type": "git"
+  },
+  "author": "Lukas von Mateffy (@Capevace)",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0",
+    "moment": "^2.17.1"
+  }
+}
