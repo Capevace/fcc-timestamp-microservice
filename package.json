@@ -7,6 +7,9 @@
     "url": "https://github.com/Capevace/fcc-timestamp-microservice",
     "type": "git"
   },
+  "scripts": {
+    "start": "node index.js"
+  },
   "author": "Lukas von Mateffy (@Capevace)",
   "license": "MIT",
   "dependencies": {
