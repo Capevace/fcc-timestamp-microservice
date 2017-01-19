@@ -23,6 +23,8 @@ app.get('/:time', (req, res) => {
     });
   } else {
     const parsedTime = parseInt(req.params.time, 10);
+
+    // If the time is negative, return null dates
     if (parsedTime < 0) {
       res.json({
         unix: null,
